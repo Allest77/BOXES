@@ -7,7 +7,7 @@ public class ThirdPersonMovement : MonoBehaviour {
     public Rigidbody rb;
     public BoxCollider playerCollider;
     public Transform cam;
-    public float speed = 16.0f, turnSmoothTime = 0.1f, mashDelay = 0.5f, jumpForce = 4;
+    public float speed = 16.0f, turnSmoothTime = 0.1f, mashDelay = 0.01f, jumpForce = 4;
     float turnSmoothVelocity, mash, boostTimer;
     bool boosting, started, pressed;
 
@@ -41,7 +41,7 @@ public class ThirdPersonMovement : MonoBehaviour {
             boostTimer += speed * Time.deltaTime;
 
             pressed = true;
-            mash = mashDelay;
+            mash += mashDelay;
         } else if (Input.GetKeyUp(KeyCode.Z)) {
             pressed = false;
         }
@@ -49,6 +49,9 @@ public class ThirdPersonMovement : MonoBehaviour {
         if (mash <= 0) {
             speed = 16;
             boosting = false;
+        } else {
+            mash -= Time.deltaTime;
+            speed = 16 + mash;
         }
     }
 
