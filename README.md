@@ -30,8 +30,8 @@ Synopsis -
 
 * 11/19/2021:
 Start - 3:15 PM
-End - 
-Time -
+End - 9:18 PM
+Time - 6 hours
 Synopsis - 
 * Finalize UI elements
 * Determine weight system for packages. Point is to slow down the player's speed at set rates.
