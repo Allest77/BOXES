@@ -21,6 +21,17 @@ Synopsis - Made Unity project & Github Repo. Added Driving controls from CWC Uni
 
 * 11/18/2021:
 Start - 11:30 AM
+End - 9:30 PM
+Time - 10 hours
+Synopsis - 
+* Finishing up core mechanics (mashing, driving, point of delivery, package UI).
+* Designed paper map for Level.
+* Sketching music.
+
+* 11/19/2021:
+Start - 3:15 PM
 End - 
 Time -
-Synopsis - Finishing up core mechanics (mashing, driving, point of delivery, package UI).
+Synopsis - 
+* Finalize UI elements
+* Determine weight system for packages. Point is to slow down the player's speed at set rates.
