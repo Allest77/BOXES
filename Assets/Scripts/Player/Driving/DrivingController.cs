@@ -2,13 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrivingController : MonoBehaviour {
-    public float speed = 15.0f, turnSpeed = 18.0f; 
-    float horizontalInput, forwardInput;
+public class DrivingController : MonoBehaviour
+{
+    public float speed = 15.0f, turnSpeed = 18.0f;
+    float horizontalInput, forwardInput, accelerate;
+    public GameObject[] cameras = new GameObject[2];
+
+    void Start() {
+        cameras[0].SetActive(false);
+        cameras[1].SetActive(false);
+        InvokeRepeating("addspeed", 1.0f, 1.0f);
+    }
+
+    void addspeed() {
+        if (speed < 30) {
+            speed++; }
+    }
 
     void Update() {
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
+
+        //Switching the camera when reversing.
+        if (Input.GetKeyDown(KeyCode.S)) {
+            speed = speed / 5;
+            cameras[0].SetActive(true);
+            cameras[1].SetActive(true);
+        }
 
         //Move the vehicle forward.
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
