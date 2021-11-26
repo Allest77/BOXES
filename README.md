@@ -35,3 +35,11 @@ Time - 6 hours
 Synopsis - 
 * Finalize UI elements
 * Determine weight system for packages. Point is to slow down the player's speed at set rates.
+
+*11/26/2021:
+Start - 4:39 PM
+End - 6:14 PM
+Time - 1 hour, 36 minutes
+Synopsis - 
+* Implemented reverse controls and cameras
+* Speed Limit mechanic. Will be tied to grading system.
