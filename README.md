@@ -38,8 +38,9 @@ Synopsis -
 
 *11/26/2021:
 Start - 4:39 PM
-End - 6:14 PM
-Time - 1 hour, 36 minutes
+End - 6:52 PM
+Time - 2 hours, 13 minutes
 Synopsis - 
 * Implemented reverse controls and cameras
 * Speed Limit mechanic. Will be tied to grading system.
+* Started building the final level
