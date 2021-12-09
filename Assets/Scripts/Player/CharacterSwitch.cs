@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterSwitch : MonoBehaviour {
-    /*public ThirdPersonMovement player;
+    public GameObject[] playerPrefabs; //create a player array
 
-    public void Awake()
-    {
-     
+    public void Awake() {
+        vroom.SetActive(true);
+        player.SetActive(false);
+    }
+
+    void Switch() {
+        int playerIndex = (0, packagePrefabs.Length);
     }
 
     // Update is called once per frame
@@ -17,5 +21,5 @@ public class CharacterSwitch : MonoBehaviour {
             vroom.SetActive(false);
             player.SetActive(true);
         }
-    } */
+    }
 }
