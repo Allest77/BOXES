@@ -44,3 +44,11 @@ Synopsis -
 * Implemented reverse controls and cameras
 * Speed Limit mechanic. Will be tied to grading system.
 * Started building the final level
+
+12/8/2021:
+Start - 9:00 PM
+End - 12:13 AM
+Time - 3 hours, 13 minutes
+Synopsis - 
+* Core mechanics 
+* Level greybox in Unreal
