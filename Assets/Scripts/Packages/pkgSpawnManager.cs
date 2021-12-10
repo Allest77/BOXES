@@ -5,14 +5,28 @@ using UnityEngine.UI;
 
 public class pkgSpawnManager : MonoBehaviour {
     public GameObject[] packagePrefabs; //create a package array
-    public GameObject[] uiPrefabs; //display image of package on the bottom left of ThirdPersonPlayer
+    public Sprite[] uiSprites; //display image of package on the bottom left of ThirdPersonPlayer
+    public GameObject[] locationsPrefabs;
+    public Image uiImage;
+    int routeIndex, minStops = 60, maxStops = 199;
+    
+    public List<int> stops = new List<int>();
+
+    //stops.Add() - For loop
+
+    void Start() {
+        SpawnRandomPackage();
+
+        for (int i = 0; i < Random.Range(minStops, maxStops); i++) {
+            stops.Add(60);
+        }
+    }
                                         
-    //public GameObject[] routePrefabs; //create a route array that can hold a randomized number of stops.
-    //public GameObject[] locationsPrefabs; //create an array that holds a randomized number of locations per point of delivery (POD).
     //Multiple Points of Delivery. Locations prefab will hold a random # of packages per POD in a stop. There can sometimes be more than one POD
 
     void SpawnRandomPackage() {
         //int locationIndex = Random.Range(0, locationPrefab.Length); //Spawn random # of PODs (should be per stop).
-        int routeIndex = Random.Range(0, packagePrefabs.Length); //Randomly spawns a package (your current delivery).
+        routeIndex = Random.Range(0, uiSprites.Length); //Randomly spawns a package (your current delivery).
+        uiImage.sprite = uiSprites[routeIndex];
     }
 }
