@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class pkgSpawnManager : MonoBehaviour {
     public GameObject[] packagePrefabs; //create a package array
+    public GameObject[] uiPrefabs; //display image of package on the bottom left of ThirdPersonPlayer
                                         
     //public GameObject[] routePrefabs; //create a route array that can hold a randomized number of stops.
     //public GameObject[] locationsPrefabs; //create an array that holds a randomized number of locations per point of delivery (POD).

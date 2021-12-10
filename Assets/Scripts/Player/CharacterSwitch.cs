@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class CharacterSwitch : MonoBehaviour {
     public GameObject[] playerPrefabs; //create a player array
-
+/*
     public void Awake() {
-        vroom.SetActive(true);
-        player.SetActive(false);
+      vroom.SetActive(true);
+      player.SetActive(false);
+    }
+
+    void Start() {
+        player = GameObject.Find("ThirdPersonPlayer").GetComponent<ThirdPersonMovement>(); //reference player speed, taken from this script.
+        vroom = GameObject.Find("VROOM").GetComponent<DrivingController>(); //reference to driving
     }
 
     void Switch() {
         int playerIndex = (0, packagePrefabs.Length);
     }
 
-    // Update is called once per frame
+    /*
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.X)) {
             vroom.SetActive(false);
             player.SetActive(true);
         }
-    }
+    } */
 }
