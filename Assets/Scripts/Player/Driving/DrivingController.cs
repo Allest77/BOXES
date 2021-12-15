@@ -11,7 +11,6 @@ public class DrivingController : MonoBehaviour
     void Start() {
         cameras[0].SetActive(false);
         cameras[1].SetActive(false);
-        InvokeRepeating("addspeed", 1.0f, 1.0f);
     }
 
     void addspeed() {
@@ -28,6 +27,11 @@ public class DrivingController : MonoBehaviour
             speed = speed / 5;
             cameras[0].SetActive(true);
             cameras[1].SetActive(true);
+        } else if (Input.GetKeyDown(KeyCode.W))
+        {
+            speed = 15.0f;
+            cameras[0].SetActive(false);
+            cameras[1].SetActive(false);
         }
 
         //Move the vehicle forward.

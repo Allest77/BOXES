@@ -2,47 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimerController : MonoBehaviour {
+    public Text time;
+    public float timer = 30;
 
+    private void Update()
+    {
+        timer -= Time.deltaTime;
+        time.text = "" + timer.ToString("f2");
+    }
+
+    private void FixedUpdate() {
+        if (timer < 0) {
+            GameOver(); } }
+
+    void GameOver() {
+        SceneManager.LoadScene("GameOver");
+        Debug.Log("I Fucked");
+    }
 }
-    /*public static TimerController instance;
-    public Text timeCounter;
-
-    private TimeSpan timePlaying;
-    private bool timerGoing;
-    private float elapsedTime, startTime;
-
-    private void Awake() {
-        instance = this;
-    }
-
-    void Start() {
-        timeCounter.text = "00:00.00";
-        timerGoing = false;
-        BeginTimer();
-    }
-
-    public void BeginTimer() {
-        timerGoing = true;
-        startTime = Time.time;
-        elapsedTime = 0f;
-
-        StartCoroutine(UpdateTimer());
-    }
-
-    public void EndTimer() {
-        timerGoing = false;
-    }
-
-    private IEnumerator UpdateTimer() {
-        while (timerGoing) {
-            elapsedTime += Time.deltaTime;
-            timePlaying = TimeSpan.FromSeconds(elapsedTime);
-            string timePlayingStr = timePlaying.ToString("mm':'ss'.'ff");
-            timeCounter.text = timePlayingStr;
-
-            yield return null;
-        }
-    }
-} */

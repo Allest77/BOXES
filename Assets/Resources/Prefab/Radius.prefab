@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5690662336369170076}
   - component: {fileID: 1525918165726429036}
+  - component: {fileID: 726871944413304476}
   m_Layer: 0
   m_Name: Point of Delivery
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6335078035684856598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.097, y: -0.466, z: -0.0128}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.852358, y: 0.70101, z: 0.25142244}
   m_Children: []
   m_Father: {fileID: 4676832871802408392}
   m_RootOrder: 0
@@ -93,6 +94,19 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!65 &726871944413304476
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6335078035684856598}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7239524632770690784
 GameObject:
   m_ObjectHideFlags: 0

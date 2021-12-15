@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ThirdPersonMovement : MonoBehaviour {
     public CharacterController controller;
     public Rigidbody rb;
-    public BoxCollider playerCollider;
+    public BoxCollider playerCollider, deliverCollider;
     public Transform cam;
-    public float speed = 12.0f, turnSmoothTime = 0.1f, mashDelay = 0.001f, jumpForce = 4;
+    public float speed = 12.0f, turnSmoothTime = 0.1f, mashDelay = 0.001f, jumpForce = 4, distance, threshold = 56;
     float turnSmoothVelocity, mash, boostTimer;
     bool boosting, started, pressed;
+    public GameObject dropOff, packageSpawn;
+    private pkgSpawnManager nextStop, stopAmount;
+    public Text stop;
+    public int packageNumber;
 
     void Start() {
-        playerCollider = gameObject.GetComponent<BoxCollider>();
+        nextStop = packageSpawn.GetComponent<pkgSpawnManager>();
+
+        packageNumber = nextStop.stopAmount;
+        Debug.Log(packageNumber);
+
         mash = mashDelay;
         boosting = false;
         boostTimer = 0;
@@ -53,6 +62,24 @@ public class ThirdPersonMovement : MonoBehaviour {
             mash -= Time.deltaTime;
             speed = 12 + mash;
         }
+
+        distance = Vector3.Distance(dropOff.transform.position, transform.position); //makes a float value based on the distance.
+    }
+
+    void OnTriggerStay(Collider deliverCollider) {
+        if (Input.GetKeyUp(KeyCode.X))
+        {
+            nextStop.SpawnRandomPackage();
+            packageNumber -= 1;
+            stop.text = "stops: " + packageNumber.ToString();
+
+            Debug.Log("Dropped off");
+        }
+    }
+
+    private bool isGrounded() {
+        bool isGrounded = Physics.Raycast(transform.position, -gameObject.transform.up, playerCollider.bounds.extents.y + 0.1f);
+        return isGrounded;
     }
 
     private void Jump() {
@@ -63,10 +90,5 @@ public class ThirdPersonMovement : MonoBehaviour {
             jumpVector.z = rb.velocity.z;
             rb.velocity = jumpVector;
         }
-    }
-
-    private bool isGrounded() {
-        bool isGrounded = Physics.Raycast(transform.position, -gameObject.transform.up, playerCollider.bounds.extents.y + 0.1f);
-        return isGrounded;
     }
 }

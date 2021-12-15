@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SpeedLimit : MonoBehaviour
 {
-    /*private const float maxSpeedAngle = -20, zeroSpeedAngle = 210;
-    private float speedMax, speed;
-    private Transform needleTransform;
+ /* private const float maxSpeedAngle = -20, zeroSpeedAngle = 210;
+    public float speedMax;
+    private Transform needleTransform, speedLabelTransform;
     public float speed;
+    public GameObject vehicle;
+    private DrivingController van;
 
     private void Awake() {
         needleTransform = transform.Find("needle");
@@ -20,6 +22,7 @@ public class SpeedLimit : MonoBehaviour
     }
 
     void Start() {
+        van = gameObject.GetComponent<DrivingController>();
         StartCoroutine(CalcSpeed());
     }
 
@@ -51,7 +54,7 @@ public class SpeedLimit : MonoBehaviour
             Transform speedLabelTransform = Instantiate(speedLabelTransform, transform);
             float labelSpeedNormalized = (float)i / labelAmount;
             speedLabelTransform.eulerAngles = new Vector3(0, 0, speedLabelAngle);
-            speedLabelTransform.Find("speedText").GetComponent<Text>().text = Mathf.RoundToInt(labelSpeedNormalized * speedMax).ToString();
+            speedLabelTransform.Find("speedText").GetComponent<GradeSystem>() = Mathf.RoundToInt(labelSpeedNormalized * speedMax).ToString();
             speedLabelTransform.Find("speedText").eulerAngles = Vector3.zero;
             speedLabelTransform.gameObject.SetActive(true);
         }
