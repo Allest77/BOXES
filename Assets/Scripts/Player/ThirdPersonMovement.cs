@@ -10,7 +10,7 @@ public class ThirdPersonMovement : MonoBehaviour {
     public Transform cam;
     public float speed = 12.0f, turnSmoothTime = 0.1f, mashDelay = 0.001f, jumpForce = 4, distance, threshold = 56;
     float turnSmoothVelocity, mash, boostTimer;
-    bool boosting, started, pressed;
+    bool boosting, started, pressed, putDown = false;
     public GameObject dropOff, packageSpawn;
     private pkgSpawnManager nextStop, stopAmount;
     public Text stop;
@@ -63,18 +63,22 @@ public class ThirdPersonMovement : MonoBehaviour {
             speed = 12 + mash;
         }
 
-        distance = Vector3.Distance(dropOff.transform.position, transform.position); //makes a float value based on the distance.
-    }
-
-    void OnTriggerStay(Collider deliverCollider) {
-        if (Input.GetKeyUp(KeyCode.X))
-        {
+        if (Input.GetKeyDown(KeyCode.X) && putDown) {
             nextStop.SpawnRandomPackage();
             packageNumber -= 1;
             stop.text = "stops: " + packageNumber.ToString();
-
             Debug.Log("Dropped off");
         }
+
+        distance = Vector3.Distance(dropOff.transform.position, transform.position); //makes a float value based on the distance.
+    }
+
+    void OnTriggerEnter(Collider deliverCollider) {
+        putDown = true;
+    }
+
+    private void OnTriggerExit(Collider other) {
+        putDown = false;
     }
 
     private bool isGrounded() {
