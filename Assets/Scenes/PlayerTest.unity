@@ -311,8 +311,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefabs: []
-  player: {fileID: 0}
-  vroom: {fileID: 0}
+  playerCamera: {fileID: 882901990295279022, guid: a5c2da5128c3b094a844be87c0cd0b7b, type: 3}
+  uiCamera: {fileID: 1874158070213059643, guid: 8e90972d6746283498d0045195e18288, type: 3}
+  vehicleCamera: {fileID: 1244303864988734944, guid: 306527fbb3c79df4fa0021e98a455aa9, type: 3}
+  player: {fileID: 728572174}
+  vroom: {fileID: 748506660}
 --- !u!1 &728572174 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3288575470528789139, guid: a34066f1136dd6641a1b0159130f240b, type: 3}
@@ -916,15 +919,15 @@ PrefabInstance:
       objectReference: {fileID: 1185137850}
     - target: {fileID: 882901990474780887, guid: a5c2da5128c3b094a844be87c0cd0b7b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.07776431
+      value: 0.07776429
       objectReference: {fileID: 0}
     - target: {fileID: 882901990474780887, guid: a5c2da5128c3b094a844be87c0cd0b7b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017682218
+      value: -0.000000017682229
       objectReference: {fileID: 0}
     - target: {fileID: 882901990474780887, guid: a5c2da5128c3b094a844be87c0cd0b7b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000013792222
+      value: 0.0000000013792226
       objectReference: {fileID: 0}
     - target: {fileID: 882901990972246931, guid: a5c2da5128c3b094a844be87c0cd0b7b, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1250,6 +1253,10 @@ PrefabInstance:
       propertyPath: time
       value: 
       objectReference: {fileID: 1736093131}
+    - target: {fileID: 7889293494251908172, guid: cbba7b4f280766c4991a599334381f83, type: 3}
+      propertyPath: timer
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 7889293494251908175, guid: cbba7b4f280766c4991a599334381f83, type: 3}
       propertyPath: van
       value: 
