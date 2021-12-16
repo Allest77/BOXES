@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class DrivingController : MonoBehaviour
 {
-    public float speed = 15.0f, turnSpeed = 18.0f;
+    public float speed = 15.0f, turnSpeed = 18.0f, speedMax;
     float horizontalInput, forwardInput, accelerate;
     public GameObject[] cameras = new GameObject[2];
+    public int increase;
 
     void Start() {
         cameras[0].SetActive(false);
@@ -24,12 +25,16 @@ public class DrivingController : MonoBehaviour
 
         //Switching the camera when reversing.
         if (Input.GetKeyDown(KeyCode.S)) {
-            speed = speed / 5;
+            if (speed > 0) {
+                speed = speed - (increase * Time.deltaTime);
+            }
             cameras[0].SetActive(true);
             cameras[1].SetActive(true);
         } else if (Input.GetKeyDown(KeyCode.W))
         {
-            speed = 15.0f;
+            if (speed < speedMax) {
+                speed = speed + (increase * Time.deltaTime);
+            }
             cameras[0].SetActive(false);
             cameras[1].SetActive(false);
         }
