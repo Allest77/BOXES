@@ -11,7 +11,7 @@ public class SpeedLimit : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         grade = gradeSystem.GetComponent<GradeSystem>();
         grade.speedMax = speedMax;
-        Debug.Log("Speed Limit: ");
+        Debug.Log("Speed Limit: " + speedMax);
     }
 }
 

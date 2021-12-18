@@ -18,7 +18,8 @@ public class CharacterSwitch : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C)) {
+        //Switch into Human.
+        if (Input.GetKey(KeyCode.C)) {
             vroom.SetActive(false);
             vehicleCamera.SetActive(false);
             
@@ -26,9 +27,11 @@ public class CharacterSwitch : MonoBehaviour {
             playerCamera.SetActive(true);
             uiCamera.SetActive(true);
             player.transform.position = vroom.transform.position;
+            Debug.Log("Human");
         }
 
-        if (Input.GetKeyDown(KeyCode.V)) {
+        //Switch into vehicle.
+        if (Input.GetKey(KeyCode.V)) {
             vroom.SetActive(true);
             vehicleCamera.SetActive(true);
             player.transform.position = vroom.transform.position;
@@ -36,6 +39,7 @@ public class CharacterSwitch : MonoBehaviour {
             player.SetActive(false);
             playerCamera.SetActive(false);
             uiCamera.SetActive(false);
+            Debug.Log("Vehicle");
         }
     }
 }
